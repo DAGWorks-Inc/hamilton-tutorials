@@ -1,6 +1,9 @@
 jupyter
+matplotlib
 numpy
+optuna
 pandas
+pyarrow
 scikit-learn
 sf-hamilton[visualization]
 xgboost
