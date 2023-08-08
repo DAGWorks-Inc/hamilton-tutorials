@@ -1,0 +1,8 @@
+jupyter
+matplotlib
+numpy
+pandas
+pyarrow
+scikit-learn
+sf-hamilton[visualization]
+xgboost
