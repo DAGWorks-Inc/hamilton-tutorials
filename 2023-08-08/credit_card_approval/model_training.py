@@ -45,7 +45,7 @@ def model_config(model_config_override: Optional[dict] = None) -> dict:
         max_delta_step=0,  # 0 is no constraint; used in imbalanced logistic reg; typical 1 to 10;
         reg_alpha=0,  # alias alpha; default 0
         reg_lambda=1,  # alias lambda; default 1
-        tree_method="gpu_hist",
+        tree_method="hist",
         enable_categorical=True,
         max_cat_to_onehot=None,
         # learning parameters
