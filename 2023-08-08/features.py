@@ -178,18 +178,28 @@ def days_due(status: pd.Series) -> pd.Series:
 ))
 def days_due_agg(clean_application_record: pd.DataFrame, days_due: pd.Series) -> dict:
     """Compute average and standard deviation of `days_due` per user"""
-    aggregates = days_due.groupby("id").agg(["mean", "skew"])
+    aggregates = days_due.groupby("id").agg(["mean", "std"])
+
     return dict(
-        days_due_mean=aggregates[("days_due", "mean")],
-        std=aggregates[("days_due", "std")],
+        days_due_mean=aggregates["mean"],
+        days_due_std=aggregates["std"],
     )
 
 
 @save_to.parquet(path=value("./data/targets.parquet"), output_name_="save_targets")
-def targets_set(
+def target_set(
     days_due_mean: pd.Series,
     days_due_std: pd.Series,
 ) -> pd.DataFrame:
-    """Join features into dataframe and save to parquet"""
+    """Join targets into dataframe and save to parquet"""
     _df = pd.DataFrame.from_dict(locals())
     return _df
+
+
+@save_to.parquet(
+    path=value("./data/preprocessed_dataset.parquet"), 
+    output_name_="save_preprocessed_dataset",
+)
+def preprocessed_dataset(feature_set: pd.DataFrame, target_set: pd.DataFrame) -> pd.DataFrame:
+    return pd.merge(feature_set, target_set, how="inner", left_index=True, right_index=True)
+     
