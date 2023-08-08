@@ -161,8 +161,8 @@ def month_index(raw_credit_record: pd.DataFrame) -> pd.Series:
     return (
         raw_credit_record["months_balance"]
         .groupby("id")
-        .apply(lambda x: x - x.min())
-        .reset_index(level=0, drop=True)
+        .transform(lambda x: x - x.min())
+        #.reset_index(level=0, drop=True)
     )
 
 
