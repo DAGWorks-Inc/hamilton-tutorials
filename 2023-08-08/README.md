@@ -29,9 +29,9 @@ drive.mount('/content/drive')
 ```bash
 !git clone https://github.com/DAGWorks-Inc/hamilton-tutorials/
 ````
-6. Move your current directory to the hello_world example
+6. Move your current directory to the example
 ```bash
-%cd hamilton-tutorials/hello_world
+%cd hamilton-tutorials/2023-08-08/XXXXX
 ````
 7. Install requirements.
 ```bash
