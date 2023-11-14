@@ -1,0 +1,8 @@
+openai
+PyPDF2
+python-multipart
+sf-hamilton[visualization]
+tenacity
+tiktoken
+tqdm
+dagworks-sdk
