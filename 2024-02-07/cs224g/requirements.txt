@@ -1,0 +1,9 @@
+# this is a bit of kitchen sink of possible requirements
+openai
+anthropic
+faiss-cpu
+langchain
+langchain-community
+langchain-openai
+pytest
+sf-hamilton[visualization,experiments]
